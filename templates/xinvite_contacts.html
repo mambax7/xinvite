@@ -1,0 +1,36 @@
+<style type="text/css">
+<!--
+.style1 {color: #003399}
+.style2 {color: #3366CC}
+-->
+</style>
+<h2><{$header_title}></h2>
+
+<p><{$message_p}></p>
+<div style="background-color:#FEFEFE; padding:15px 10px 10px 15px; color:#333444;">
+<form method="post" enctype="multipart/form-data" action="<{$module_path}>?op=sendmail&interface=<{$interface}>&uid=<{$uid}>">
+  <h2><span class="style1">Custom Message Insert:</span><br />
+    <br />
+    <textarea name="custmsg" cols="45" rows="10"></textarea>
+    <br />
+    </h2>
+  <p>
+    <label>
+    <div align="right">
+      <input type="submit" name="Submit" id="Submit" value="Send Emails" />
+    </div>
+    </label>
+    <br />
+    <h3 class="style2">Email Contacts:</h3>
+    <blockquote>
+      <p><br />
+        <{foreach from=$contacts item=contact}>
+        <span style="width:80%; clear:both; display:block; color:#333333">
+          <input name="contact[<{$contact.id}>]" type="checkbox" id="contact" value="1" checked="checked" />
+        <{$contact.email}> - <{$contact.name}>      </span> <{/foreach}>    
+        </p>
+      </p>
+    </blockquote>
+    <input type="hidden" value="<{$oi_session_id}>" name="oi_session_id">
+</form>
+</div>

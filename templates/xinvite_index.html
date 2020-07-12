@@ -1,0 +1,26 @@
+<h2><{$header_title}></h2>
+
+<p><{$header_p}></p>
+<div style="background-color:#FEFEFE; padding:15px 10px 10px 15px;">
+<{foreach from=$interfaces item=interface}>
+<form target="_blank" method="post" enctype="multipart/form-data" action="<{$module_path}>?op=submit&interface=<{$interface.name}>">
+  <div style="clear:both; width:90%; color:#663399; background-color:#FEFEFE;">&nbsp; <span style="text-align:XInvite; width:150; height:45;"><img height="26px" src="<{$interface.image}>" /></span>
+    <span style="color:#663399; background-color:#FEFEFE;"> <{if $interface.file == 1}>
+     File:&nbsp;
+    <input name="uploadfile" type="file" />
+<{else}>
+    Username:&nbsp;
+    <input name="username" type="text" size="16" maxlength="255" />
+    Password:&nbsp;
+    <input name="password" type="password" size="12" maxlength="255" />
+<{/if}>
+    </span>    
+    <span>&nbsp;
+    <input type="hidden" value="<{$uid}>" name="uid">
+    <input type="hidden" value="<{$interface.id}>" name="id">
+    <input name="submit" type="submit" value="Invite 2 Join" />
+         </span>  </div>
+</form>
+<{/foreach}>
+</div>
+<p><{if $joinprevious}>&lt; <a href="?jointype=<{$joinprevious}>&uid=<{$uid}>">Previous</a> &gt;<{/if}>&nbsp;<{if $joinnext}>&lt; <a href="?jointype=<{$joinnext}>&uid=<{$uid}>">Next</a> &gt;<{/if}> &lt; <a href="?jointype=all&uid=<{$uid}>">All Interfaces</a> &gt;</p>

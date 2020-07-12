@@ -1,0 +1,6 @@
+<h2><{$header_title}></h2>
+<p><{$header_p}></p>
+<{foreach item=error key=errorkey from=$errors}>
+	<h3 style="color:#FF0000"><{$errorkey}></h3>
+	<p><{$error}></p>
+<{/foreach}>
